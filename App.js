@@ -1,19 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import Constants from 'expo-constants';
+import contacts, { compareNames } from './contact';
+import ContactSectionList from './ContactSectionList';
+import ContactFlatList from './ContactFlatList';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  state = {
+    showContacts: false,
+    contacts: contacts
+  };
+  toggleContacts = () => {
+    this.setState((prevState) => ({
+      showContacts: !prevState.showContacts
+    }));
+  };
+  render() {
+    return (
+      <View style={(Constants.statusBarHeight, Styles.appContainer)}>
+        <Button title='Toggle' onPress={this.toggleContacts} />
+        {this.state.showContacts && (
+          <View>
+            <ContactSectionList contacts={this.state.contacts} />
+          </View>
+        )}
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
+const Styles = StyleSheet.create({
+  appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 50
   },
+  padding: {
+    padding: 20
+  }
 });
