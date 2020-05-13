@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
-import Constants from 'expo-constants';
-import contacts, { compareNames } from './contact';
-import ContactSectionList from './ContactSectionList';
-import ContactFlatList from './ContactFlatList';
-import AddContact from './AddContact';
+import React from 'react'
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native'
+import Constants from 'expo-constants'
+import contacts, { compareNames } from './contact'
+import ContactSectionList from './ContactSectionList'
+import ContactFlatList from './ContactFlatList'
+import AddContact from './AddContact'
 
 export default class App extends React.Component {
   state = {

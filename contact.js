@@ -174,7 +174,7 @@ const rand = (max, min = 0) =>
 // generate a name
 const generateName = () =>
   `${firstNames[rand(firstNames.length - 1)]} ${
-  lastNames[rand(lastNames.length - 1)]
+    lastNames[rand(lastNames.length - 1)]
   }`;
 
 // generate a phone number
